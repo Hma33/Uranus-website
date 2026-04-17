@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
+import viteImagemin from 'vite-plugin-imagemin'
 
 
 function figmaAssetResolver() {
@@ -23,6 +24,20 @@ export default defineConfig({
     // Tailwind is not being actively used – do not remove them
     react(),
     tailwindcss(),
+    // Image optimisation – runs automatically on every `vite build`
+    viteImagemin({
+      gifsicle: { optimizationLevel: 7, interlaced: false },
+      optipng:  { optimizationLevel: 7 },
+      mozjpeg:  { quality: 80 },
+      pngquant: { quality: [0.8, 0.9], speed: 4 },
+      svgo: {
+        plugins: [
+          { name: 'removeViewBox' },
+          { name: 'removeEmptyAttrs', active: false },
+        ],
+      },
+      webp: { quality: 80 },
+    }),
   ],
   resolve: {
     alias: {
