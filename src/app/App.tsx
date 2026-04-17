@@ -294,7 +294,7 @@ function GalleryImage({ src, className, style, delay = 0 }: { src: string; class
       className={className}
       style={{ ...style, perspective: 800, rotateX, rotateY }}
     >
-      <img alt="" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={src} />
+      <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={src} />
       <motion.div
         className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0"
         whileHover={{ opacity: 1 }}
@@ -314,7 +314,7 @@ function MobileGalleryImage({ src, delay = 0 }: { src: string; delay?: number })
       transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
       className="w-full aspect-[4/3] relative overflow-hidden rounded-[8px]"
     >
-      <img alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" src={src} />
+      <img alt="" className="absolute inset-0 w-full h-full object-cover" src={src} />
     </motion.div>
   );
 }
