@@ -1,16 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uranus website</title>
 
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Uranus website</title>
-      <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
-    </head>
+    <!-- Preconnect to Google Fonts for massive TBT/LCP font wins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700&family=Kode+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Roboto:wght@400;600;700&display=swap">
 
-    <body>
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-    </body>
-  </html>
-  
+    <!-- Preload massive Hero background natively to guarantee under-1s LCP -->
+    <link rel="preload" as="image" href="/src/assets/6e1d1ab0ffe931f26d9969ed17ad9ef421548b8a.webp" imagesrcset="/src/assets/6e1d1ab0ffe931f26d9969ed17ad9ef421548b8a_480w.webp 480w, /src/assets/6e1d1ab0ffe931f26d9969ed17ad9ef421548b8a_800w.webp 800w, /src/assets/6e1d1ab0ffe931f26d9969ed17ad9ef421548b8a.webp 1200w" imagesizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1200px">
+
+    <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
