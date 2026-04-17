@@ -1,24 +1,78 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from "motion/react";
 import { useIsMobile } from "./components/ui/use-mobile";
-import imgDownload21 from "figma:asset/6e1d1ab0ffe931f26d9969ed17ad9ef421548b8a.webp";
-import imgLogo from "figma:asset/1f2061a97aad5d88e1694e4b104e221864e0e1be.webp";
-import imgImage1 from "figma:asset/feb1f42572c0af70952e77830c7c51e966e8fd72.webp";
-import img11 from "figma:asset/1186cb6867cf9c6eb1c0875bc848cf82bead24cc.webp";
-import img31 from "figma:asset/7d568bee9c62d4880b48a666c3efd19aa779a549.webp";
-import img61 from "figma:asset/d8b2a97602e16ff787036b131864f6603f8ad1ff.webp";
-import img71 from "figma:asset/100c21b7537dfedba0f19f9d93df371e9120d136.webp";
-import img91 from "figma:asset/83ef50264d745a9d81950066cea41371b2eb52e0.webp";
-import img81 from "figma:asset/47bb5839d6567efa9982da8c771236f7606a44b7.webp";
-import img101 from "figma:asset/1863a721d45a8fdfd3d8058ad7fe0f4350c7704e.webp";
-import img111 from "figma:asset/65b331fd91b7623ee77a797313b09b485cd4a8cd.webp";
-import img121 from "figma:asset/55ce1223bc0061f9f3d3f711c4966367497742e7.webp";
-import img131 from "figma:asset/c2f63f1fe7f29f70ebab94c43548aac25c765996.webp";
-import imgImage2 from "figma:asset/514293ae20b7141dc297601399d23c4af1f064ff.webp";
-import imgStartWithUs from "../imports/image.webp";
-import imgPhotojournalism from "../imports/image-1.webp";
-import imgPhotojournalism2 from "../imports/Desktop6-13/4638ad39246a464347efd0cd3086e6a76032927c.webp";
-import img21 from "../imports/Desktop7/d81b03d74f2eb673e1f26befbf97730863b199d2.webp";
+import imgDownload21_src from "figma:asset/6e1d1ab0ffe931f26d9969ed17ad9ef421548b8a.webp";
+import imgDownload21_480 from "figma:asset/6e1d1ab0ffe931f26d9969ed17ad9ef421548b8a_480w.webp";
+import imgDownload21_800 from "figma:asset/6e1d1ab0ffe931f26d9969ed17ad9ef421548b8a_800w.webp";
+const imgDownload21 = { src: imgDownload21_src, srcSet: `${imgDownload21_480} 480w, ${imgDownload21_800} 800w, ${imgDownload21_src} 1200w` };
+import imgLogo_src from "figma:asset/1f2061a97aad5d88e1694e4b104e221864e0e1be.webp";
+import imgLogo_480 from "figma:asset/1f2061a97aad5d88e1694e4b104e221864e0e1be_480w.webp";
+import imgLogo_800 from "figma:asset/1f2061a97aad5d88e1694e4b104e221864e0e1be_800w.webp";
+const imgLogo = { src: imgLogo_src, srcSet: `${imgLogo_480} 480w, ${imgLogo_800} 800w, ${imgLogo_src} 1200w` };
+import imgImage1_src from "figma:asset/feb1f42572c0af70952e77830c7c51e966e8fd72.webp";
+import imgImage1_480 from "figma:asset/feb1f42572c0af70952e77830c7c51e966e8fd72_480w.webp";
+import imgImage1_800 from "figma:asset/feb1f42572c0af70952e77830c7c51e966e8fd72_800w.webp";
+const imgImage1 = { src: imgImage1_src, srcSet: `${imgImage1_480} 480w, ${imgImage1_800} 800w, ${imgImage1_src} 1200w` };
+import img11_src from "figma:asset/1186cb6867cf9c6eb1c0875bc848cf82bead24cc.webp";
+import img11_480 from "figma:asset/1186cb6867cf9c6eb1c0875bc848cf82bead24cc_480w.webp";
+import img11_800 from "figma:asset/1186cb6867cf9c6eb1c0875bc848cf82bead24cc_800w.webp";
+const img11 = { src: img11_src, srcSet: `${img11_480} 480w, ${img11_800} 800w, ${img11_src} 1200w` };
+import img31_src from "figma:asset/7d568bee9c62d4880b48a666c3efd19aa779a549.webp";
+import img31_480 from "figma:asset/7d568bee9c62d4880b48a666c3efd19aa779a549_480w.webp";
+import img31_800 from "figma:asset/7d568bee9c62d4880b48a666c3efd19aa779a549_800w.webp";
+const img31 = { src: img31_src, srcSet: `${img31_480} 480w, ${img31_800} 800w, ${img31_src} 1200w` };
+import img61_src from "figma:asset/d8b2a97602e16ff787036b131864f6603f8ad1ff.webp";
+import img61_480 from "figma:asset/d8b2a97602e16ff787036b131864f6603f8ad1ff_480w.webp";
+import img61_800 from "figma:asset/d8b2a97602e16ff787036b131864f6603f8ad1ff_800w.webp";
+const img61 = { src: img61_src, srcSet: `${img61_480} 480w, ${img61_800} 800w, ${img61_src} 1200w` };
+import img71_src from "figma:asset/100c21b7537dfedba0f19f9d93df371e9120d136.webp";
+import img71_480 from "figma:asset/100c21b7537dfedba0f19f9d93df371e9120d136_480w.webp";
+import img71_800 from "figma:asset/100c21b7537dfedba0f19f9d93df371e9120d136_800w.webp";
+const img71 = { src: img71_src, srcSet: `${img71_480} 480w, ${img71_800} 800w, ${img71_src} 1200w` };
+import img91_src from "figma:asset/83ef50264d745a9d81950066cea41371b2eb52e0.webp";
+import img91_480 from "figma:asset/83ef50264d745a9d81950066cea41371b2eb52e0_480w.webp";
+import img91_800 from "figma:asset/83ef50264d745a9d81950066cea41371b2eb52e0_800w.webp";
+const img91 = { src: img91_src, srcSet: `${img91_480} 480w, ${img91_800} 800w, ${img91_src} 1200w` };
+import img81_src from "figma:asset/47bb5839d6567efa9982da8c771236f7606a44b7.webp";
+import img81_480 from "figma:asset/47bb5839d6567efa9982da8c771236f7606a44b7_480w.webp";
+import img81_800 from "figma:asset/47bb5839d6567efa9982da8c771236f7606a44b7_800w.webp";
+const img81 = { src: img81_src, srcSet: `${img81_480} 480w, ${img81_800} 800w, ${img81_src} 1200w` };
+import img101_src from "figma:asset/1863a721d45a8fdfd3d8058ad7fe0f4350c7704e.webp";
+import img101_480 from "figma:asset/1863a721d45a8fdfd3d8058ad7fe0f4350c7704e_480w.webp";
+import img101_800 from "figma:asset/1863a721d45a8fdfd3d8058ad7fe0f4350c7704e_800w.webp";
+const img101 = { src: img101_src, srcSet: `${img101_480} 480w, ${img101_800} 800w, ${img101_src} 1200w` };
+import img111_src from "figma:asset/65b331fd91b7623ee77a797313b09b485cd4a8cd.webp";
+import img111_480 from "figma:asset/65b331fd91b7623ee77a797313b09b485cd4a8cd_480w.webp";
+import img111_800 from "figma:asset/65b331fd91b7623ee77a797313b09b485cd4a8cd_800w.webp";
+const img111 = { src: img111_src, srcSet: `${img111_480} 480w, ${img111_800} 800w, ${img111_src} 1200w` };
+import img121_src from "figma:asset/55ce1223bc0061f9f3d3f711c4966367497742e7.webp";
+import img121_480 from "figma:asset/55ce1223bc0061f9f3d3f711c4966367497742e7_480w.webp";
+import img121_800 from "figma:asset/55ce1223bc0061f9f3d3f711c4966367497742e7_800w.webp";
+const img121 = { src: img121_src, srcSet: `${img121_480} 480w, ${img121_800} 800w, ${img121_src} 1200w` };
+import img131_src from "figma:asset/c2f63f1fe7f29f70ebab94c43548aac25c765996.webp";
+import img131_480 from "figma:asset/c2f63f1fe7f29f70ebab94c43548aac25c765996_480w.webp";
+import img131_800 from "figma:asset/c2f63f1fe7f29f70ebab94c43548aac25c765996_800w.webp";
+const img131 = { src: img131_src, srcSet: `${img131_480} 480w, ${img131_800} 800w, ${img131_src} 1200w` };
+import imgImage2_src from "figma:asset/514293ae20b7141dc297601399d23c4af1f064ff.webp";
+import imgImage2_480 from "figma:asset/514293ae20b7141dc297601399d23c4af1f064ff_480w.webp";
+import imgImage2_800 from "figma:asset/514293ae20b7141dc297601399d23c4af1f064ff_800w.webp";
+const imgImage2 = { src: imgImage2_src, srcSet: `${imgImage2_480} 480w, ${imgImage2_800} 800w, ${imgImage2_src} 1200w` };
+import imgStartWithUs_src from "../imports/image.webp";
+import imgStartWithUs_480 from "../imports/image_480w.webp";
+import imgStartWithUs_800 from "../imports/image_800w.webp";
+const imgStartWithUs = { src: imgStartWithUs_src, srcSet: `${imgStartWithUs_480} 480w, ${imgStartWithUs_800} 800w, ${imgStartWithUs_src} 1200w` };
+import imgPhotojournalism_src from "../imports/image-1.webp";
+import imgPhotojournalism_480 from "../imports/image-1_480w.webp";
+import imgPhotojournalism_800 from "../imports/image-1_800w.webp";
+const imgPhotojournalism = { src: imgPhotojournalism_src, srcSet: `${imgPhotojournalism_480} 480w, ${imgPhotojournalism_800} 800w, ${imgPhotojournalism_src} 1200w` };
+import imgPhotojournalism2_src from "../imports/Desktop6-13/4638ad39246a464347efd0cd3086e6a76032927c.webp";
+import imgPhotojournalism2_480 from "../imports/Desktop6-13/4638ad39246a464347efd0cd3086e6a76032927c_480w.webp";
+import imgPhotojournalism2_800 from "../imports/Desktop6-13/4638ad39246a464347efd0cd3086e6a76032927c_800w.webp";
+const imgPhotojournalism2 = { src: imgPhotojournalism2_src, srcSet: `${imgPhotojournalism2_480} 480w, ${imgPhotojournalism2_800} 800w, ${imgPhotojournalism2_src} 1200w` };
+import img21_src from "../imports/Desktop7/d81b03d74f2eb673e1f26befbf97730863b199d2.webp";
+import img21_480 from "../imports/Desktop7/d81b03d74f2eb673e1f26befbf97730863b199d2_480w.webp";
+import img21_800 from "../imports/Desktop7/d81b03d74f2eb673e1f26befbf97730863b199d2_800w.webp";
+const img21 = { src: img21_src, srcSet: `${img21_480} 480w, ${img21_800} 800w, ${img21_src} 1200w` };
 
 const slides = [
   {
@@ -73,7 +127,7 @@ function Company() {
         className="h-[36px] relative shrink-0 w-[90px]"
       >
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="Logomark" className="absolute h-[250%] left-0 max-w-none top-[-65.28%] w-full" src={imgLogo} />
+          <img alt="Logomark" className="absolute h-[250%] left-0 max-w-none top-[-65.28%] w-full" src={imgLogo.src} loading="lazy" />
         </div>
       </motion.div>
       <div className="hidden sm:flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold justify-center leading-[0] not-italic relative shrink-0 text-[20px] text-white tracking-[-0.4px]">
@@ -294,7 +348,7 @@ function GalleryImage({ src, className, style, delay = 0 }: { src: string; class
       className={className}
       style={{ ...style, perspective: 800, rotateX, rotateY }}
     >
-      <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={src} />
+      <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={src.src || src} srcSet={src.srcSet} sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1200px" loading="lazy" />
       <motion.div
         className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0"
         whileHover={{ opacity: 1 }}
@@ -305,7 +359,7 @@ function GalleryImage({ src, className, style, delay = 0 }: { src: string; class
 }
 
 /* ---- Mobile Gallery Image (flow-based) ---- */
-function MobileGalleryImage({ src, delay = 0 }: { src: string; delay?: number }) {
+function MobileGalleryImage({ src, delay = 0 }: { src: any; delay?: number }) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -314,7 +368,7 @@ function MobileGalleryImage({ src, delay = 0 }: { src: string; delay?: number })
       transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
       className="w-full aspect-[4/3] relative overflow-hidden rounded-[8px]"
     >
-      <img alt="" className="absolute inset-0 w-full h-full object-cover" src={src} />
+      <img alt="" className="absolute inset-0 w-full h-full object-cover" src={src.src || src} srcSet={src.srcSet} sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1200px" loading="lazy" />
     </motion.div>
   );
 }
@@ -333,7 +387,7 @@ function MobileLayout({ activeSlide, setActiveSlide }: { activeSlide: number; se
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0"
         >
-          <img alt="" className="w-full h-full object-cover" src={imgDownload21} />
+          <img alt="" className="w-full h-full object-cover" src={imgDownload21.src} srcSet={imgDownload21.srcSet} sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1200px" fetchpriority="high" />
         </motion.div>
 
         <div className="relative z-[1] px-[20px] pt-[80px] pb-[40px]">
@@ -394,7 +448,7 @@ function MobileLayout({ activeSlide, setActiveSlide }: { activeSlide: number; se
           </ul>
         </div>
         <div className="w-[100px] h-[66px] shrink-0">
-          <img alt="" className="w-full h-full object-cover" src={imgStartWithUs} />
+          <img alt="" className="w-full h-full object-cover" src={imgStartWithUs.src} srcSet={imgStartWithUs.srcSet} sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1200px" loading="lazy" />
         </div>
       </motion.section>
 
@@ -459,7 +513,7 @@ function MobileLayout({ activeSlide, setActiveSlide }: { activeSlide: number; se
                   transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
                   alt=""
                   className="absolute inset-0 w-full h-full object-cover"
-                  src={current.image}
+                  src={current.image.src} srcSet={current.image.srcSet} sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1200px"
                 />
               </div>
               <p className="font-['Kode_Mono:SemiBold',sans-serif] font-semibold text-[14px] sm:text-[16px] text-white tracking-[-0.32px] leading-[1.8]">
@@ -558,7 +612,7 @@ function MobileLayout({ activeSlide, setActiveSlide }: { activeSlide: number; se
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="w-full aspect-[4/3] relative overflow-hidden rounded-[8px]"
           >
-            <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgImage2} />
+            <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgImage2.src} srcSet={imgImage2.srcSet} sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1200px" loading="lazy" />
           </motion.div>
         </div>
       </section>
@@ -635,7 +689,7 @@ function DesktopLayout({ activeSlide, setActiveSlide }: { activeSlide: number; s
           transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0 pointer-events-none"
         >
-          <img alt="" className="absolute h-[150.16%] left-[-0.03%] max-w-none top-[-50.16%] w-[100.05%] object-cover" src={imgDownload21} />
+          <img alt="" className="absolute h-[150.16%] left-[-0.03%] max-w-none top-[-50.16%] w-[100.05%] object-cover" src={imgDownload21.src} srcSet={imgDownload21.srcSet} sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1200px" loading="lazy" />
         </motion.div>
       </div>
       <motion.div
@@ -727,7 +781,7 @@ function DesktopLayout({ activeSlide, setActiveSlide }: { activeSlide: number; s
         </ul>
       </div>
       <div className="absolute h-[95px] left-[776px] top-[609px] w-[143px]">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgStartWithUs} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgStartWithUs.src} srcSet={imgStartWithUs.srcSet} sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1200px" loading="lazy" />
       </div>
 
       {/* URANUS is the creative media Startup */}
@@ -803,7 +857,7 @@ function DesktopLayout({ activeSlide, setActiveSlide }: { activeSlide: number; s
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full rounded-lg" src={current.image}
+              alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full rounded-lg" src={current.image.src} srcSet={current.image.srcSet} sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1200px"
             />
           </div>
         </motion.div>
