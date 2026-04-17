@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import path from 'path'
-import fs from 'fs'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import viteImagemin from 'vite-plugin-imagemin'
@@ -12,12 +11,6 @@ function figmaAssetResolver() {
     resolveId(id) {
       if (id.startsWith('figma:asset/')) {
         const filename = id.replace('figma:asset/', '')
-        // Prefer the compressed .jpg over the original .png if it exists
-        const jpgName = filename.replace(/\.png$/, '.jpg')
-        const jpgPath = path.resolve(__dirname, 'src/assets', jpgName)
-        if (fs.existsSync(jpgPath)) {
-          return jpgPath
-        }
         return path.resolve(__dirname, 'src/assets', filename)
       }
     },
