@@ -17,8 +17,8 @@ import img131 from "figma:asset/c2f63f1fe7f29f70ebab94c43548aac25c765996.png";
 import imgImage2 from "figma:asset/514293ae20b7141dc297601399d23c4af1f064ff.png";
 import imgStartWithUs from "../imports/image.png";
 import imgPhotojournalism from "../imports/image-1.png";
-import imgPhotojournalism2 from "../imports/Desktop6-13/4638ad39246a464347efd0cd3086e6a76032927c.png";
-import img21 from "../imports/Desktop7/d81b03d74f2eb673e1f26befbf97730863b199d2.png";
+import imgPhotojournalism2 from "../imports/Desktop6-13/4638ad39246a464347efd0cd3086e6a76032927c.jpg";
+import img21 from "../imports/Desktop7/d81b03d74f2eb673e1f26befbf97730863b199d2.jpg";
 
 const slides = [
   {
@@ -294,7 +294,7 @@ function GalleryImage({ src, className, style, delay = 0 }: { src: string; class
       className={className}
       style={{ ...style, perspective: 800, rotateX, rotateY }}
     >
-      <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={src} />
+      <img alt="" loading="lazy" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={src} />
       <motion.div
         className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0"
         whileHover={{ opacity: 1 }}
@@ -314,7 +314,7 @@ function MobileGalleryImage({ src, delay = 0 }: { src: string; delay?: number })
       transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
       className="w-full aspect-[4/3] relative overflow-hidden rounded-[8px]"
     >
-      <img alt="" className="absolute inset-0 w-full h-full object-cover" src={src} />
+      <img alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover" src={src} />
     </motion.div>
   );
 }
